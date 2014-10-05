@@ -4,8 +4,8 @@ Summary         : Virtual package provides proper dependency resolution for java
 Version         : %{VERSION}
 Release         : %{RELEASE}
 BuildArch       : noarch
-Provides        : java, jre
-Requires        : jdk > %{VERSION}
+Provides        : java
+Requires        : jre >= %{VERSION}
 
 Group           : Development/Java Development
 License         : None
