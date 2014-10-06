@@ -37,3 +37,11 @@ Some people prefer to run the Oracle JRE/JDK instead of OpenJDK. Oracle provides
 %changelog
 
 
+
+%clean
+if [ ! -z "%{_topdir}" ]; then
+	%{__rm} -rf --preserve-root "%{_topdir}" \
+		|| echo "Failed to delete build root!"
+fi
+
+
