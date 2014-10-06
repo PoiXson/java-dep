@@ -2,7 +2,7 @@
 Name            : java-dep
 Summary         : Virtual package provides proper dependency resolution for java packages using OpenJDK or Oracle Java
 Version         : %{VERSION}
-Release         : 3
+Release         : %{RELEASE}
 BuildArch       : noarch
 Provides        : java
 Requires        : jre >= %{VERSION}
