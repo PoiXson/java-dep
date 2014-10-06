@@ -1,19 +1,15 @@
 # original script found at: http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 clear
 
-
-
 VERSION="1.7"
-RELEASE="2"
 
 
 
 PWD=`pwd`
 SOURCE_ROOT="${PWD}"
 BUILD_ROOT="${PWD}/rpmbuild-root"
-
+OUTPUT_DIR="${PWD}"
 SPEC_FILE="java-dep.spec"
-OUTPUT_RPM="java-dep-%%{version}-%%{release}.noarch.rpm"
 
 
 
@@ -44,9 +40,8 @@ cp "${SPEC_FILE}" "${BUILD_ROOT}/SPECS/" \
 rpmbuild -bb \
 	--define="_topdir ${BUILD_ROOT}" \
 	--define="_tmppath ${BUILD_ROOT}/tmp" \
+	--define "OUTPUT_DIR ${OUTPUT_DIR}" \
 	--define="VERSION ${VERSION}" \
-	--define="RELEASE ${RELEASE}" \
-	--define="_rpmfilename ${OUTPUT_RPM}" \
 	"${BUILD_ROOT}/SPECS/${SPEC_FILE}" \
 		|| exit 1
 
