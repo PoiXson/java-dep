@@ -47,7 +47,7 @@ cp "${SPEC_FILE}" "${BUILD_ROOT}/SPECS/" \
 rpmbuild -bb \
 	--define="_topdir ${BUILD_ROOT}" \
 	--define="_tmppath ${BUILD_ROOT}/tmp" \
-	--define "_rpmdir ${OUTPUT_DIR}" \
+	--define="_rpmdir ${OUTPUT_DIR}" \
 	--define="VERSION ${VERSION}" \
 	--define="RELEASE ${BUILD_NUMBER}" \
 	"${BUILD_ROOT}/SPECS/${SPEC_FILE}" \
