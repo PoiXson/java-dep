@@ -18,24 +18,12 @@ Some people prefer to run the Oracle JRE/JDK instead of OpenJDK. Oracle provides
 
 
 
-%prep
-
-%build
-
-%pre
-
-%post
-
 %install
 # delete existing rpm
 if [[ -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" ]]; then
 	%{__rm} -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" \
 		|| exit 1
 fi
-
-%files
-
-%changelog
 
 
 
@@ -45,4 +33,17 @@ if [ ! -z "%{_topdir}" ]; then
 		|| echo "Failed to delete build root!"
 fi
 
+
+
+%prep
+
+%build
+
+%files
+
+%pre
+
+%post
+
+%changelog
 
