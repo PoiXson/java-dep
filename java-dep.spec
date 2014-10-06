@@ -27,6 +27,11 @@ Some people prefer to run the Oracle JRE/JDK instead of OpenJDK. Oracle provides
 %post
 
 %install
+# delete existing rpm
+if [[ -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" ]]; then
+	%{__rm} -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" \
+		|| exit 1
+fi
 
 %files
 
