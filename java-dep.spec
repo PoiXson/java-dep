@@ -19,11 +19,8 @@ Some people prefer to run the Oracle JRE/JDK instead of OpenJDK. Oracle provides
 
 
 %install
-# delete existing rpm
-if [[ -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" ]]; then
-	%{__rm} -f "%{_rpmdir}/%{name}-%{version}-%{release}.noarch.rpm" \
-		|| exit 1
-fi
+# delete existing rpm's
+%{__rm} -fv "%{_rpmdir}/%{name}-%{version}-"*.noarch.rpm
 
 
 
