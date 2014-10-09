@@ -1,11 +1,11 @@
 # original script found at: http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 Name            : java-dep
 Summary         : Virtual package provides proper dependency resolution for java packages using OpenJDK or Oracle Java
-Version         : %{VERSION}
-Release         : %{RELEASE}
+Version         : %{JAVA_VERSION}.%{BUILD_NUMBER}
+Release         : 2
 BuildArch       : noarch
 Provides        : java
-Requires        : jre >= %{VERSION}
+Requires        : jre >= %{JAVA_VERSION}
 %define  _rpmfilename  %%{NAME}-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
 
 Group           : Development/Java Development
@@ -27,7 +27,7 @@ Some people prefer to run the Oracle JRE/JDK instead of OpenJDK. Oracle provides
 %clean
 if [ ! -z "%{_topdir}" ]; then
 	%{__rm} -rf --preserve-root "%{_topdir}" \
-		|| echo "Failed to delete build root!"
+		|| echo "Failed to delete build root (probably fine..)"
 fi
 
 

@@ -1,7 +1,7 @@
 # original script found at: http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 clear
 
-VERSION="1.7"
+JAVA_VERSION="1.7"
 
 
 
@@ -48,9 +48,8 @@ rpmbuild -bb \
 	--define="_topdir ${BUILD_ROOT}" \
 	--define="_tmppath ${BUILD_ROOT}/tmp" \
 	--define="_rpmdir ${OUTPUT_DIR}" \
-	--define="VERSION ${VERSION}" \
-	--define="RELEASE ${BUILD_NUMBER}" \
+	--define="JAVA_VERSION ${JAVA_VERSION}" \
+	--define="BUILD_NUMBER ${BUILD_NUMBER}" \
 	"${BUILD_ROOT}/SPECS/${SPEC_FILE}" \
 		|| exit 1
-
 
