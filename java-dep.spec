@@ -1,4 +1,3 @@
-# original script found at: http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 Name            : java-dep
 Summary         : Virtual package provides proper dependency resolution for java packages using Oracle Java
 Version         : %{JAVA_VERSION}.%{BUILD_NUMBER}
@@ -8,6 +7,8 @@ BuildArch       : noarch
 
 Group           : Development/Java Development
 License         : None
+Packager        : PoiXson <support@poixson.com>
+URL             : http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 
 
 
