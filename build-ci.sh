@@ -13,9 +13,13 @@ else
 fi
 
 
-NAME="java-dep"
+NAMEo="java-dep-opn"
+NAMEr="java-dep-jre"
+NAMEd="java-dep-jdk"
 [ -z "${WORKSPACE}" ] && WORKSPACE=`pwd`
-rm -vf "${WORKSPACE}/${NAME}"-*.noarch.rpm
+rm -vf "${WORKSPACE}/${NAMEo}"-*.noarch.rpm
+rm -vf "${WORKSPACE}/${NAMEr}"-*.noarch.rpm
+rm -vf "${WORKSPACE}/${NAMEd}"-*.noarch.rpm
 
 
 title "Build.."
@@ -23,8 +27,19 @@ title "Build.."
 
 
 title "Deploy.."
-cp -fv "${WORKSPACE}/${NAME}"-*.noarch.rpm "${DL_PATH}/" || exit 1
-latest_version "${DL_PATH}/${NAME}-*.noarch.rpm"         || exit 1
+cp -fv "${WORKSPACE}/${NAMEo}"-*.noarch.rpm "${DL_PATH}/" || exit 1
+cp -fv "${WORKSPACE}/${NAMEr}"-*.noarch.rpm "${DL_PATH}/" || exit 1
+cp -fv "${WORKSPACE}/${NAMEd}"-*.noarch.rpm "${DL_PATH}/" || exit 1
+# open jdk
+latest_version "${DL_PATH}/${NAMEo}-*.noarch.rpm"         || exit 1
 echo "Latest version: "${LATEST_FILE}
-ln -fs "${LATEST_FILE}" "${YUM_PATH}/${NAME}.noarch.rpm" || exit 1
+ln -fs "${LATEST_FILE}" "${YUM_PATH}/${NAMEo}.noarch.rpm" || exit 1
+# jre
+latest_version "${DL_PATH}/${NAMEr}-*.noarch.rpm"         || exit 1
+echo "Latest version: "${LATEST_FILE}
+ln -fs "${LATEST_FILE}" "${YUM_PATH}/${NAMEr}.noarch.rpm" || exit 1
+# jdk
+latest_version "${DL_PATH}/${NAMEd}-*.noarch.rpm"         || exit 1
+echo "Latest version: "${LATEST_FILE}
+ln -fs "${LATEST_FILE}" "${YUM_PATH}/${NAMEd}.noarch.rpm" || exit 1
 
