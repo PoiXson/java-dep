@@ -16,19 +16,19 @@ URL             : http://deez.info/2013/05/29/creating-a-virtual-java-rpm/
 %package opn
 Summary         : Virtual package provides proper dependency resolution for OpenJDK (provides: jdk)
 Requires        : java-openjdk >= 1.8
-Provides        : jdk
+Provides        : java, jre, jdk
 
 %package jre
 Summary         : Virtual package provides proper dependency resolution for Oracle Java Runtime Environment (jre)
 Requires        : jre >= 1.8
 Requires        : jaxp_parser_impl
-Provides        : java
+Provides        : java, jre
 
 %package jdk
 Summary         : Virtual package provides proper dependency resolution for Oracle Java Development Kit (jdk)
 Requires        : jdk >= 1.8
 Requires        : jaxp_parser_impl
-Provides        : java, jre
+Provides        : java, jre, jdk
 
 
 
